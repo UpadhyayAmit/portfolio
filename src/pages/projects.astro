@@ -1,0 +1,146 @@
+---
+import '../styles/global.css';
+import Layout from '../components/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'AI Projects by Amit Upadhyay | Azure OpenAI & .NET';
+const description = 'Production AI projects including TowerAssist, AI Study Planner, Panchantra Algorithm Series, and AI Mock Test Generator.';
+
+const projects = [
+  {
+    title: 'TowerAssist',
+    tagline: 'AI-powered assistant for operational workflows in buildings.',
+    stack: ['Azure OpenAI', 'C#/.NET', 'Cognitive Services'],
+    description:
+      'Designed and built an AI assistant that handles operational queries in building management workflows. Context-aware responses powered by Azure OpenAI and domain-specific knowledge retrieval.',
+    lesson: 'Build context-aware systems.',
+    category: 'AI System',
+    metrics: [
+      { label: 'Architecture', value: 'RAG' },
+      { label: 'Status', value: 'Production' },
+    ],
+  },
+  {
+    title: 'AI Study Planner',
+    tagline: 'Syllabus-to-personalized-study-plan AI.',
+    stack: ['Azure OpenAI', 'JSON Schema Validation'],
+    description:
+      'Takes a raw syllabus and generates a structured, personalized study plan. The core challenge was engineering reliable AI output using JSON schema validation and prompt constraints.',
+    lesson: 'Engineering for reliable AI outputs.',
+    category: 'AI Tool',
+    metrics: [
+      { label: 'Output', value: 'Structured' },
+      { label: 'Validation', value: 'Schema-based' },
+    ],
+  },
+  {
+    title: 'Panchantra Algorithm Series',
+    tagline: 'Storytelling method for teaching algorithms.',
+    stack: ['React', 'Python', 'Mermaid Diagrams'],
+    description:
+      'A content + code project that uses narrative storytelling to teach complex algorithms. Each algorithm is a "story" with characters, conflict, and resolution — making concepts stick.',
+    lesson: 'Teaching through narrative.',
+    category: 'Education',
+    metrics: [
+      { label: 'Approach', value: 'Narrative' },
+      { label: 'Format', value: 'Interactive' },
+    ],
+  },
+  {
+    title: 'AI Mock Test Generator',
+    tagline: 'Dynamic test creation with RAG.',
+    stack: ['Azure Cognitive Search', 'GPT-4'],
+    description:
+      'Generates mock exam questions from uploaded documents using Retrieval-Augmented Generation. Built for production reliability with Azure Cognitive Search as the knowledge backbone.',
+    lesson: 'Production-ready retrieval augmentation.',
+    category: 'AI System',
+    metrics: [
+      { label: 'Method', value: 'RAG' },
+      { label: 'Engine', value: 'GPT-4' },
+    ],
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Navbar slot="navbar" />
+
+  <!-- Heading -->
+  <section class="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-30"></div>
+    <div class="absolute top-20 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-container mx-auto px-6">
+      <div class="max-w-3xl">
+        <p class="text-xs font-medium text-accent uppercase tracking-widest mb-3 animate-fade-in">Portfolio</p>
+        <h1 class="text-h1-mobile md:text-h1 text-primary animate-fade-in-up">
+          Selected <span class="text-accent">Work</span>
+        </h1>
+        <p class="mt-6 text-body-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s;">
+          Production-grade AI systems, tools, and experiments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="pb-24 md:pb-32">
+    <div class="max-w-container mx-auto px-6 space-y-8">
+      {projects.map((project, i) => (
+        <article class={`glow-card rounded-2xl overflow-hidden reveal reveal-delay-${(i % 4) + 1}`}>
+          <!-- Header bar -->
+          <div class="px-8 md:px-10 pt-8 md:pt-10 flex items-center justify-between">
+            <span class="px-3 py-1 rounded-lg text-xs font-medium bg-accent/10 text-accent border border-accent/20">
+              {project.category}
+            </span>
+            <div class="flex items-center gap-4">
+              {project.metrics.map((m) => (
+                <div class="text-right">
+                  <p class="text-xs text-muted">{m.label}</p>
+                  <p class="text-sm font-medium text-primary">{m.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-8 md:p-10">
+            <h2 class="text-h2 text-primary">{project.title}</h2>
+            <p class="mt-2 text-body-lg text-secondary">{project.tagline}</p>
+
+            <p class="mt-6 text-body text-muted leading-relaxed max-w-2xl">
+              {project.description}
+            </p>
+
+            <!-- Stack & Lesson -->
+            <div class="mt-8 pt-6 border-t border-border/50 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-wrap gap-2">
+                {project.stack.map((tech) => (
+                  <span class="pill text-xs">{tech}</span>
+                ))}
+              </div>
+              <p class="text-sm text-muted">
+                <span class="text-accent font-medium">Lesson:</span> {project.lesson}
+              </p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

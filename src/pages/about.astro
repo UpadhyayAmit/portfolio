@@ -1,0 +1,205 @@
+---
+import '../styles/global.css';
+import Layout from '../components/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'About Amit Upadhyay | AI Systems Engineer | Azure & .NET';
+const description = '15+ years of software engineering. AI systems in production. Azure-focused architect based in Dubai.';
+
+const specializations = [
+  {
+    title: 'AI-Powered Systems',
+    items: ['RAG Architecture', 'AI Agents', 'Vector Search', 'Prompt Engineering'],
+    icon: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>`,
+  },
+  {
+    title: 'Azure Architectures',
+    items: ['Azure OpenAI', 'Cognitive Services', 'AI Foundry', 'Azure Functions'],
+    icon: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" /></svg>`,
+  },
+  {
+    title: '.NET / C# Backend',
+    items: ['ASP.NET Core', 'Production APIs', 'Microservices', 'Domain-Driven Design'],
+    icon: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>`,
+  },
+  {
+    title: 'Cloud-Native Design',
+    items: ['Serverless', 'DevOps', 'Docker', 'CI/CD Pipelines'],
+    icon: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" /></svg>`,
+  },
+];
+
+const differentiators = [
+  {
+    title: "I design systems around AI",
+    body: "Not just API wrappers. Full architecture thinking — from data flow to deployment.",
+  },
+  {
+    title: "I ship to real users",
+    body: "Production-tested systems that handle real traffic, real edge cases, real constraints.",
+  },
+  {
+    title: "I document production lessons",
+    body: "My writing at aiwisdom.dev captures hard-won insights from the trenches.",
+  },
+];
+
+const timeline = [
+  { period: 'Now', role: 'AI Software Engineer & Azure Architect', detail: 'Building AI tools for operational workflows' },
+  { period: '2020–Present', role: 'Cloud & AI Systems Focus', detail: 'Deep in Azure OpenAI, RAG, and agentic AI workflows' },
+  { period: '2010–2020', role: 'Software Engineering', detail: '10+ years shipping production software across multiple domains' },
+];
+---
+
+<Layout title={title} description={description}>
+  <Navbar slot="navbar" />
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+    <div class="absolute inset-0 bg-grid opacity-30"></div>
+    <div class="absolute top-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-container mx-auto px-6">
+      <div class="max-w-3xl">
+        <div class="status-badge mb-8 animate-fade-in">Dubai, UAE</div>
+        <h1 class="text-h1-mobile md:text-h1 text-primary animate-fade-in-up">
+          About <span class="text-accent">Me</span>
+        </h1>
+        <p class="mt-6 text-body-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s;">
+          AI software engineer with 15+ years experience.
+          Azure-focused. AI systems in production. Cloud-native architectures.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="py-24 bg-background-secondary">
+    <div class="max-w-container mx-auto px-6">
+      <div class="grid md:grid-cols-[1fr_2fr] gap-16 reveal">
+        <!-- Identity -->
+        <div>
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent/20 to-purple-500/20 border border-accent/20 flex items-center justify-center mb-6">
+            <span class="text-2xl font-heading font-bold text-accent">AU</span>
+          </div>
+          <h2 class="text-h3 text-primary">Amit Upadhyay</h2>
+          <p class="text-sm text-accent font-medium mt-1">AI Software Engineer & Azure Architect</p>
+          <p class="text-sm text-muted mt-1">Dubai, UAE</p>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            {['Azure', '.NET', 'AI/ML', 'Cloud-Native'].map((tag) => (
+              <span class="pill text-xs">{tag}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Bio text -->
+        <div class="space-y-6">
+          <p class="text-body-lg text-secondary leading-relaxed">
+            I build production-grade AI systems using Azure, .NET, and modern
+            cloud-native patterns. My focus is on applied AI — not demos, not
+            prototypes. <span class="text-primary font-medium">Systems that run in real environments with real constraints.</span>
+          </p>
+          <p class="text-body-lg text-secondary leading-relaxed">
+            15+ years shipping software. Currently deep in Azure OpenAI, Cognitive
+            Services, RAG architectures, and agentic AI workflows.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specializations -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-container mx-auto px-6">
+      <div class="reveal">
+        <p class="text-xs font-medium text-accent uppercase tracking-widest mb-3">Expertise</p>
+        <h2 class="text-h2 text-primary">Specializations</h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-2 gap-6">
+        {specializations.map((spec, i) => (
+          <div class={`glow-card rounded-2xl p-8 reveal reveal-delay-${i + 1}`}>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
+                <Fragment set:html={spec.icon} />
+              </div>
+              <h3 class="text-h3 text-primary">{spec.title}</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              {spec.items.map((item) => (
+                <span class="px-3 py-1.5 rounded-lg text-sm bg-white/5 border border-border text-secondary">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Divider -->
+  <div class="section-divider max-w-container mx-auto"></div>
+
+  <!-- Why I'm Different -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-container mx-auto px-6">
+      <div class="reveal">
+        <p class="text-xs font-medium text-accent uppercase tracking-widest mb-3">Differentiators</p>
+        <h2 class="text-h2 text-primary">Why I'm Different</h2>
+      </div>
+
+      <div class="mt-16 grid md:grid-cols-3 gap-6">
+        {differentiators.map((item, i) => (
+          <div class={`glow-card rounded-2xl p-8 reveal reveal-delay-${i + 1}`}>
+            <div class="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent text-sm font-bold mb-6">
+              {i + 1}
+            </div>
+            <h3 class="text-lg font-semibold text-primary mb-3">{item.title}</h3>
+            <p class="text-body text-muted">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Divider -->
+  <div class="section-divider max-w-container mx-auto"></div>
+
+  <!-- Timeline -->
+  <section class="py-24 md:py-32">
+    <div class="max-w-container mx-auto px-6">
+      <div class="reveal">
+        <p class="text-xs font-medium text-accent uppercase tracking-widest mb-3">Journey</p>
+        <h2 class="text-h2 text-primary">Currently</h2>
+      </div>
+
+      <div class="mt-16 space-y-0 reveal">
+        {timeline.map((item, i) => (
+          <div class="relative pl-8 pb-10 last:pb-0 border-l border-border/50 group">
+            <div class="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-accent/20 border-2 border-accent group-hover:bg-accent transition-colors"></div>
+            <p class="text-xs font-medium text-accent uppercase tracking-wider">{item.period}</p>
+            <h3 class="mt-2 text-lg font-semibold text-primary">{item.role}</h3>
+            <p class="mt-1 text-body text-muted">{item.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

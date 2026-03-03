@@ -319,6 +319,9 @@
       }
 
       @media (max-width: 600px) {
+        body {
+          overflow-x: hidden; /* prevent horizontal page scroll */
+        }
         .section {
           padding: 20px;
         }
@@ -329,7 +332,7 @@
         /* ── Responsive table: each row becomes a card ── */
         .table-wrap {
           border: none;
-          overflow-x: visible;
+          overflow: visible;
         }
         table.data-table,
         table.data-table thead,
@@ -339,6 +342,7 @@
         table.data-table tr {
           display: block;
           width: 100%;
+          min-width: 0; /* override desktop min-width: 520px */
           box-sizing: border-box;
         }
         table.data-table thead tr {

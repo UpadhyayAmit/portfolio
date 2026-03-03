@@ -220,11 +220,19 @@
         color: #7a5c00;
       }
 
+      /* ── Data table ── */
+      .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 16px 0;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
       table.data-table {
         width: 100%;
         border-collapse: collapse;
         font-size: 14px;
-        margin: 16px 0;
+        min-width: 520px; /* forces scroll before columns squish */
       }
       table.data-table th {
         background: #f1f5f9;
@@ -235,6 +243,7 @@
         letter-spacing: 0.5px;
         color: var(--text-secondary);
         text-transform: uppercase;
+        white-space: nowrap;
       }
       table.data-table td {
         padding: 10px 14px;
@@ -316,8 +325,53 @@
         header {
           padding: 40px 20px 32px;
         }
-        table.data-table {
+
+        /* ── Responsive table: each row becomes a card ── */
+        .table-wrap {
+          border: none;
+          overflow-x: visible;
+        }
+        table.data-table,
+        table.data-table thead,
+        table.data-table tbody,
+        table.data-table th,
+        table.data-table td,
+        table.data-table tr {
+          display: block;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        table.data-table thead tr {
+          display: none;
+        }
+        table.data-table tr {
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: 10px;
+          margin-bottom: 12px;
+          overflow: hidden;
+        }
+        table.data-table td {
+          display: block;
+          padding: 8px 14px;
+          border-bottom: 1px solid var(--border);
           font-size: 13px;
+          word-break: break-word;
+          overflow-wrap: anywhere;
+          white-space: normal;
+        }
+        table.data-table td:last-child {
+          border-bottom: none;
+        }
+        table.data-table td::before {
+          content: attr(data-label);
+          display: block;
+          font-weight: 700;
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: var(--primary);
+          margin-bottom: 3px;
         }
       }
     </style>
@@ -392,78 +446,80 @@
           AsyncStorage / SQLite) and never transmitted to our servers.
         </p>
 
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Data Type</th>
-              <th>What It Is</th>
-              <th>Where Stored</th>
-              <th>Shared?</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Profile</strong></td>
-              <td>Name, emoji avatar, class level (1–12), school board</td>
-              <td>On device only</td>
-              <td><span class="pill pill-green">Never</span></td>
-            </tr>
-            <tr>
-              <td><strong>Subjects &amp; Chapters</strong></td>
-              <td>Subject names, chapter titles, text content per chapter</td>
-              <td>SQLite on device</td>
-              <td><span class="pill pill-green">Never</span></td>
-            </tr>
-            <tr>
-              <td><strong>Timetable</strong></td>
-              <td>Class slots, room numbers, study sessions</td>
-              <td>On device only</td>
-              <td><span class="pill pill-green">Never</span></td>
-            </tr>
-            <tr>
-              <td><strong>Tasks &amp; Exams</strong></td>
-              <td>Task titles, due dates, priorities, exam dates</td>
-              <td>On device only</td>
-              <td><span class="pill pill-green">Never</span></td>
-            </tr>
-            <tr>
-              <td><strong>Study Statistics</strong></td>
-              <td>Study hours, Pomodoro sessions, streaks</td>
-              <td>On device only</td>
-              <td><span class="pill pill-green">Never</span></td>
-            </tr>
-            <tr>
-              <td><strong>Groq API Key</strong></td>
-              <td>Your personal Groq key (starts with <code>gsk_</code>)</td>
-              <td>iOS Keychain / Android Keystore (encrypted)</td>
-              <td><span class="pill pill-green">Never sent to us</span></td>
-            </tr>
-            <tr>
-              <td><strong>AI Prompts</strong></td>
-              <td>Chapter text or questions sent to Groq for AI features</td>
-              <td>Sent to Groq (groq.com) via <em>your</em> key only</td>
-              <td><span class="pill pill-blue">Groq only</span></td>
-            </tr>
-            <tr>
-              <td><strong>Voice Input</strong></td>
-              <td>Short audio snippets for speech-to-text (Groq Whisper)</td>
-              <td>Processed by Groq, not stored by us</td>
-              <td><span class="pill pill-blue">Groq only</span></td>
-            </tr>
-            <tr>
-              <td><strong>Camera / Photos</strong></td>
-              <td>Chapter page photographs for OCR (optional feature)</td>
-              <td>Processed by Groq Vision, temp file deleted after</td>
-              <td><span class="pill pill-blue">Groq only</span></td>
-            </tr>
-            <tr>
-              <td><strong>Notifications</strong></td>
-              <td>Local push notifications for study reminders</td>
-              <td>Device OS only, no tokens sent to our servers</td>
-              <td><span class="pill pill-green">Never</span></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>What It Is</th>
+                <th>Where Stored</th>
+                <th>Shared?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Data Type"><strong>Profile</strong></td>
+                <td data-label="What It Is">Name, emoji avatar, class level (1–12), school board</td>
+                <td data-label="Where Stored">On device only</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Subjects &amp; Chapters</strong></td>
+                <td data-label="What It Is">Subject names, chapter titles, text content per chapter</td>
+                <td data-label="Where Stored">SQLite on device</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Timetable</strong></td>
+                <td data-label="What It Is">Class slots, room numbers, study sessions</td>
+                <td data-label="Where Stored">On device only</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Tasks &amp; Exams</strong></td>
+                <td data-label="What It Is">Task titles, due dates, priorities, exam dates</td>
+                <td data-label="Where Stored">On device only</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Study Statistics</strong></td>
+                <td data-label="What It Is">Study hours, Pomodoro sessions, streaks</td>
+                <td data-label="Where Stored">On device only</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Groq API Key</strong></td>
+                <td data-label="What It Is">Your personal Groq key (starts with <code>gsk_</code>)</td>
+                <td data-label="Where Stored">iOS Keychain / Android Keystore (encrypted)</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never sent to us</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>AI Prompts</strong></td>
+                <td data-label="What It Is">Chapter text or questions sent to Groq for AI features</td>
+                <td data-label="Where Stored">Sent to Groq (groq.com) via <em>your</em> key only</td>
+                <td data-label="Shared?"><span class="pill pill-blue">Groq only</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Voice Input</strong></td>
+                <td data-label="What It Is">Short audio snippets for speech-to-text (Groq Whisper)</td>
+                <td data-label="Where Stored">Processed by Groq, not stored by us</td>
+                <td data-label="Shared?"><span class="pill pill-blue">Groq only</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Camera / Photos</strong></td>
+                <td data-label="What It Is">Chapter page photographs for OCR (optional feature)</td>
+                <td data-label="Where Stored">Processed by Groq Vision, temp file deleted after</td>
+                <td data-label="Shared?"><span class="pill pill-blue">Groq only</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Notifications</strong></td>
+                <td data-label="What It Is">Local push notifications for study reminders</td>
+                <td data-label="Where Stored">Device OS only, no tokens sent to our servers</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="highlight-box green">
           ✅ <strong>Summary:</strong> We operate no backend server that receives your personal data. The only time any content leaves your device is

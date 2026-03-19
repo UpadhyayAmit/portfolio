@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Studora AI</title>
+    <meta name="description" content="Privacy Policy for Studora AI — the intelligent study planner app." />
+    <style>
+      :root {
+        --primary: #4a90d9;
+        --text: #1a1a2e;
+        --text-secondary: #555577;
+        --bg: #f9fafb;
+        --surface: #ffffff;
+        --border: #e2e8f0;
+        --accent: #4a90d9;
+        --danger: #e74c3c;
+        --success: #2ecc71;
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        font-size: 16px;
+      }
+
+      /* ── Header ── */
+      header {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+        color: #fff;
+        padding: 60px 24px 48px;
+        text-align: center;
+      }
+      .logo-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        padding: 8px 20px;
+        margin-bottom: 24px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .logo-emoji {
+        font-size: 22px;
+      }
+      header h1 {
+        font-size: clamp(28px, 5vw, 46px);
+        font-weight: 800;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+      }
+      header h1 span {
+        color: var(--primary);
+      }
+      header p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.65);
+        max-width: 560px;
+        margin: 0 auto;
+      }
+      .meta-badges {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+      .badge {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        padding: 6px 14px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      /* ── Layout ── */
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      /* ── Quick summary cards ── */
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin: 0 0 48px;
+      }
+      .summary-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+      }
+      .summary-card .icon {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      .summary-card h3 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .summary-card p {
+        font-size: 13px;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+      .card-green {
+        border-top: 3px solid var(--success);
+      }
+      .card-blue {
+        border-top: 3px solid var(--primary);
+      }
+      .card-purple {
+        border-top: 3px solid #9b59b6;
+      }
+      .card-orange {
+        border-top: 3px solid #f39c12;
+      }
+
+      /* ── Section ── */
+      .section {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px;
+        margin-bottom: 20px;
+      }
+      .section-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 13px;
+        font-weight: 700;
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+      .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .section h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .section p {
+        color: var(--text-secondary);
+        margin-bottom: 14px;
+        font-size: 15px;
+      }
+      .section p:last-child {
+        margin-bottom: 0;
+      }
+
+      ul.policy-list {
+        list-style: none;
+        padding: 0;
+        margin: 12px 0;
+      }
+      ul.policy-list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 15px;
+        color: var(--text-secondary);
+      }
+      ul.policy-list li:last-child {
+        border-bottom: none;
+      }
+      ul.policy-list li .li-icon {
+        font-size: 16px;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .highlight-box {
+        background: #eef6ff;
+        border: 1px solid #bad9f5;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin: 16px 0;
+        font-size: 14px;
+        color: #1a5a8a;
+        line-height: 1.6;
+      }
+      .highlight-box.green {
+        background: #eafaf1;
+        border-color: #a9dfbf;
+        color: #1a6b38;
+      }
+      .highlight-box.yellow {
+        background: #fffbea;
+        border-color: #f9e4a0;
+        color: #7a5c00;
+      }
+
+      /* ── Data table ── */
+      .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 16px 0;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
+      table.data-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        min-width: 520px; /* forces scroll before columns squish */
+      }
+      table.data-table th {
+        background: #f1f5f9;
+        padding: 10px 14px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      table.data-table td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-secondary);
+        vertical-align: top;
+      }
+      table.data-table tr:last-child td {
+        border-bottom: none;
+      }
+      .pill {
+        display: inline-block;
+        padding: 2px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .pill-green {
+        background: #d4f7e4;
+        color: #1a6b38;
+      }
+      .pill-blue {
+        background: #dbeffe;
+        color: #1a5a8a;
+      }
+      .pill-grey {
+        background: #f1f5f9;
+        color: #64748b;
+      }
+
+      /* ── Contact section ── */
+      .contact-box {
+        background: linear-gradient(135deg, #1a1a2e, #0f3460);
+        border-radius: var(--radius);
+        padding: 36px;
+        color: #fff;
+        text-align: center;
+      }
+      .contact-box h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      .contact-box p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      .contact-link {
+        display: inline-block;
+        background: var(--primary);
+        color: #fff;
+        padding: 12px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      .contact-link:hover {
+        opacity: 0.9;
+      }
+
+      /* ── Footer ── */
+      footer {
+        text-align: center;
+        padding: 32px 24px;
+        font-size: 13px;
+        color: var(--text-secondary);
+        border-top: 1px solid var(--border);
+      }
+      footer a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          overflow-x: hidden; /* prevent horizontal page scroll */
+        }
+        .section {
+          padding: 20px;
+        }
+        header {
+          padding: 40px 20px 32px;
+        }
+
+        /* ── Responsive table: each row becomes a card ── */
+        .table-wrap {
+          border: none;
+          overflow: visible;
+        }
+        table.data-table,
+        table.data-table thead,
+        table.data-table tbody,
+        table.data-table th,
+        table.data-table td,
+        table.data-table tr {
+          display: block;
+          width: 100%;
+          min-width: 0; /* override desktop min-width: 520px */
+          box-sizing: border-box;
+        }
+        table.data-table thead tr {
+          display: none;
+        }
+        table.data-table tr {
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: 10px;
+          margin-bottom: 12px;
+          overflow: hidden;
+        }
+        table.data-table td {
+          display: block;
+          padding: 8px 14px;
+          border-bottom: 1px solid var(--border);
+          font-size: 13px;
+          word-break: break-word;
+          overflow-wrap: anywhere;
+          white-space: normal;
+        }
+        table.data-table td:last-child {
+          border-bottom: none;
+        }
+        table.data-table td::before {
+          content: attr(data-label);
+          display: block;
+          font-weight: 700;
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: var(--primary);
+          margin-bottom: 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ══ HEADER ══════════════════════════════════════════════════ -->
+    <header>
+      <div class="logo-badge">
+        <span class="logo-emoji">🎓</span>
+        <span>Studora AI</span>
+      </div>
+      <h1>Privacy <span>Policy</span></h1>
+      <p>We believe your study data is yours. Here's exactly what we collect, what we don't, and the choices you have.</p>
+      <div class="meta-badges">
+        <span class="badge">📅 Effective: 3 March 2026</span>
+        <span class="badge">📱 iOS &amp; Android</span>
+        <span class="badge">⚖️ GDPR &amp; COPPA compliant</span>
+        <span class="badge">🔒 No server — data stays on device</span>
+      </div>
+    </header>
+
+    <!-- ══ CONTAINER ════════════════════════════════════════════════ -->
+    <div class="container">
+      <!-- Quick summary -->
+      <div class="summary-grid">
+        <div class="summary-card card-green">
+          <div class="icon">🏠</div>
+          <h3>Stays on Your Device</h3>
+          <p>All your subjects, tasks, timetable, and study data are stored locally — never uploaded to our servers.</p>
+        </div>
+        <div class="summary-card card-blue">
+          <div class="icon">🔑</div>
+          <h3>Your Own AI Key</h3>
+          <p>AI features use <em>your</em> free Groq API key. We never see it — it's stored in your device's secure enclave.</p>
+        </div>
+        <div class="summary-card card-purple">
+          <div class="icon">🚫</div>
+          <h3>No Ads. No Tracking.</h3>
+          <p>We don't use advertising SDKs, analytics trackers, or sell your data to any third party.</p>
+        </div>
+        <div class="summary-card card-orange">
+          <div class="icon">👶</div>
+          <h3>Safe for Students</h3>
+          <p>Studora AI does not knowingly collect personal data from children under 13 beyond what's needed for the app.</p>
+        </div>
+      </div>
+
+      <!-- ── 1. Who we are ──────────────────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">1</span>
+          <h2>Who We Are</h2>
+        </div>
+        <p><strong>App name:</strong> Studora AI — Smart Study Planner</p>
+        <p><strong>Developer:</strong> Amit Upadhyay</p>
+        <p><strong>Website:</strong> <a href="https://amitupadhyay.com" style="color: var(--primary)">amitupadhyay.com</a></p>
+        <p><strong>Contact:</strong> <a href="mailto:privacy@amitupadhyay.com" style="color: var(--primary)">privacy@amitupadhyay.com</a></p>
+        <p>
+          This Privacy Policy applies to the Studora AI mobile application available on the Apple App Store and Google Play Store. By downloading or
+          using the app, you agree to the practices described in this policy.
+        </p>
+      </div>
+
+      <!-- ── 2. Data We Collect ─────────────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">2</span>
+          <h2>Data We Collect &amp; Where It Lives</h2>
+        </div>
+        <p>
+          Studora AI is a <strong>fully on-device app</strong>. All data you enter is stored in your phone's local storage (Expo SecureStore /
+          AsyncStorage / SQLite) and never transmitted to our servers.
+        </p>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>What It Is</th>
+                <th>Where Stored</th>
+                <th>Shared?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Data Type"><strong>Profile</strong></td>
+                <td data-label="What It Is">Name, emoji avatar, class level (1–12), school board</td>
+                <td data-label="Where Stored">On device only</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Subjects &amp; Chapters</strong></td>
+                <td data-label="What It Is">Subject names, chapter titles, text content per chapter</td>
+                <td data-label="Where Stored">SQLite on device</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Timetable</strong></td>
+                <td data-label="What It Is">Class slots, room numbers, study sessions</td>
+                <td data-label="Where Stored">On device only</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Tasks &amp; Exams</strong></td>
+                <td data-label="What It Is">Task titles, due dates, priorities, exam dates</td>
+                <td data-label="Where Stored">On device only</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Study Statistics</strong></td>
+                <td data-label="What It Is">Study hours, Pomodoro sessions, streaks</td>
+                <td data-label="Where Stored">On device only</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Groq API Key</strong></td>
+                <td data-label="What It Is">Your personal Groq key (starts with <code>gsk_</code>)</td>
+                <td data-label="Where Stored">iOS Keychain / Android Keystore (encrypted)</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never sent to us</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>AI Prompts</strong></td>
+                <td data-label="What It Is">Chapter text or questions sent to Groq for AI features</td>
+                <td data-label="Where Stored">Sent to Groq (groq.com) via <em>your</em> key only</td>
+                <td data-label="Shared?"><span class="pill pill-blue">Groq only</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Voice Input</strong></td>
+                <td data-label="What It Is">Short audio snippets for speech-to-text (Groq Whisper)</td>
+                <td data-label="Where Stored">Processed by Groq, not stored by us</td>
+                <td data-label="Shared?"><span class="pill pill-blue">Groq only</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Camera / Photos</strong></td>
+                <td data-label="What It Is">Chapter page photographs for OCR (optional feature)</td>
+                <td data-label="Where Stored">Processed by Groq Vision, temp file deleted after</td>
+                <td data-label="Shared?"><span class="pill pill-blue">Groq only</span></td>
+              </tr>
+              <tr>
+                <td data-label="Data Type"><strong>Notifications</strong></td>
+                <td data-label="What It Is">Local push notifications for study reminders</td>
+                <td data-label="Where Stored">Device OS only, no tokens sent to our servers</td>
+                <td data-label="Shared?"><span class="pill pill-green">Never</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box green">
+          ✅ <strong>Summary:</strong> We operate no backend server that receives your personal data. The only time any content leaves your device is
+          when you use an AI feature — and that data goes directly to Groq servers using <em>your own</em> API key under <em>your</em> Groq account's
+          Terms of Service.
+        </div>
+      </div>
+
+      <!-- ── 3. AI / Groq ──────────────────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">3</span>
+          <h2>AI Features &amp; Third-Party Services (Groq)</h2>
+        </div>
+        <p>
+          Studora AI's intelligent features (study plan generation, mock tests, AI chat, voice input, photo OCR, answer evaluation) are powered by
+          <strong>Groq Cloud</strong> — a third-party AI inference platform.
+        </p>
+        <ul class="policy-list">
+          <li>
+            <span class="li-icon">🔑</span>
+            <span
+              >AI features require you to supply your own free Groq API key, obtained directly from
+              <a href="https://console.groq.com/keys" style="color: var(--primary)">console.groq.com/keys</a>. We never request, handle, or store your
+              key on our servers.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">📤</span>
+            <span
+              >When an AI feature is used, the relevant content (chapter text, your typed question, audio, or image) is sent to Groq's API servers via
+              an HTTPS call authenticated by <em>your</em> key.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">📜</span>
+            <span
+              >Your data sent to Groq is governed by
+              <a href="https://groq.com/privacy-policy/" style="color: var(--primary)">Groq's Privacy Policy</a>
+              and their Terms of Service. Groq's free tier does not use prompt data to train models (as of 2025).</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">🚫</span>
+            <span
+              >AI features are entirely optional. If you choose not to configure a Groq key, the app works fully in offline / sample-data mode with no
+              data leaving your device.</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- ── 4. Permissions ────────────────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">4</span>
+          <h2>App Permissions</h2>
+        </div>
+        <p>Studora AI requests the following device permissions. All are optional and only used for the features described:</p>
+        <ul class="policy-list">
+          <li>
+            <span class="li-icon">🎙️</span>
+            <span
+              ><strong>Microphone</strong> — Used only when you initiate voice input to create tasks or timetable entries via speech. Audio is
+              transcribed by Groq and not stored locally or by us.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">📷</span>
+            <span
+              ><strong>Camera / Photo Library</strong> — Used only when you choose to photograph a chapter page for OCR text extraction. The photo is
+              sent to Groq Vision and the temporary file is deleted from your device after processing.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">🔔</span>
+            <span
+              ><strong>Notifications</strong> — Used to send local study reminders at times you configure. We do not use remote push notification
+              infrastructure; all notifications are scheduled locally on your device.</span
+            >
+          </li>
+        </ul>
+        <p>
+          You can revoke any permission at any time in your device's Settings. Revoking a permission only disables the corresponding optional feature
+          — the core app continues to work.
+        </p>
+      </div>
+
+      <!-- ── 5. Data Retention & Deletion ─────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">5</span>
+          <h2>Data Retention &amp; Deletion</h2>
+        </div>
+        <p>Because all data resides on your device, <strong>you are in full control</strong>:</p>
+        <ul class="policy-list">
+          <li>
+            <span class="li-icon">🗑️</span>
+            <span
+              ><strong>Delete specific data</strong> — Subjects, tasks, timetable entries, and exams can be deleted individually from within the app
+              at any time.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">🔄</span>
+            <span
+              ><strong>Reset all data</strong> — Settings → About → Reset App Data wipes every piece of data stored on your device for this app.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">🗑️</span>
+            <span
+              ><strong>Uninstall</strong> — Uninstalling the app permanently removes all local data (subject to OS backup settings — see below).</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">☁️</span>
+            <span
+              ><strong>iCloud / Google Play Backup</strong> — Your device OS may back up app data to your personal cloud account (controlled by you in
+              device settings). We cannot access this backup.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">🔑</span>
+            <span><strong>Groq API Key</strong> — Removed from your device's secure storage via Settings → Cloud AI → Remove Key at any time.</span>
+          </li>
+        </ul>
+        <div class="highlight-box">
+          ℹ️ We hold no copy of your data on any server, so we have no data to delete from our end. Your right to erasure is satisfied by the in-app
+          reset or uninstall.
+        </div>
+      </div>
+
+      <!-- ── 6. Children's Privacy ─────────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">6</span>
+          <h2>Children's Privacy (COPPA)</h2>
+        </div>
+        <p>
+          Studora AI is designed to be used by students of all ages, including children under 13, under the supervision and with the consent of a
+          parent or guardian.
+        </p>
+        <ul class="policy-list">
+          <li>
+            <span class="li-icon">🚫</span>
+            <span
+              >We do not knowingly collect personally identifiable information (PII) from any user, including children. The name and avatar entered
+              during onboarding are stored locally on the device and never transmitted to us.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">🤖</span>
+            <span
+              >AI features (which send chapter content to Groq) are optional. Parents should review whether their child should configure a Groq API
+              key and use AI features, as this involves sending academic content to Groq's servers.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">🚫</span>
+            <span>The app contains no advertising networks, social-media SDKs, or third-party analytics that are known to track children.</span>
+          </li>
+          <li>
+            <span class="li-icon">📧</span>
+            <span
+              >If you are a parent and have concerns, contact us at
+              <a href="mailto:privacy@amitupadhyay.com" style="color: var(--primary)">privacy@amitupadhyay.com</a>.
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ── 7. Security ───────────────────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">7</span>
+          <h2>Security</h2>
+        </div>
+        <ul class="policy-list">
+          <li>
+            <span class="li-icon">🔐</span>
+            <span
+              >Your Groq API key is stored using <strong>Expo SecureStore</strong>, which maps to iOS Keychain (AES-256 encrypted) and Android
+              Keystore (hardware-backed on supported devices).</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">🌐</span>
+            <span>All network calls to Groq are made over <strong>HTTPS (TLS 1.2+)</strong>.</span>
+          </li>
+          <li>
+            <span class="li-icon">📦</span>
+            <span
+              >General app data (subjects, tasks, timetable) is stored in AsyncStorage / SQLite on your device — encrypted at rest by the device's
+              full-disk encryption if enabled.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">🔑</span>
+            <span>The app does not transmit your Groq API key to any URL other than <code>api.groq.com</code>.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ── 8. Your Rights (GDPR) ─────────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">8</span>
+          <h2>Your Privacy Rights</h2>
+        </div>
+        <p>If you are in the European Economic Area (EEA), UK, or California, you have rights including:</p>
+        <ul class="policy-list">
+          <li>
+            <span class="li-icon">👁️</span>
+            <span><strong>Access</strong> — You can view all your data directly within the app at any time.</span>
+          </li>
+          <li>
+            <span class="li-icon">✏️</span>
+            <span><strong>Rectification</strong> — You can edit or correct your data within the app.</span>
+          </li>
+          <li>
+            <span class="li-icon">🗑️</span>
+            <span><strong>Erasure</strong> — Use Settings → Reset App Data or uninstall the app to delete all data.</span>
+          </li>
+          <li>
+            <span class="li-icon">📦</span>
+            <span><strong>Portability</strong> — All your data is local; you own it completely and the app does not lock you in to any server.</span>
+          </li>
+          <li>
+            <span class="li-icon">🚫</span>
+            <span
+              ><strong>Objection to processing</strong> — AI features can be disabled at any time via Settings → Cloud AI → toggle off. No AI request
+              is made without an active key configured by you.</span
+            >
+          </li>
+        </ul>
+        <p>
+          Since we hold no server-side copy of your data, exercising most of these rights is done entirely within the app itself. For any questions,
+          email
+          <a href="mailto:privacy@amitupadhyay.com" style="color: var(--primary)">privacy@amitupadhyay.com</a>.
+        </p>
+      </div>
+
+      <!-- ── 9. Changes ────────────────────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">9</span>
+          <h2>Changes to This Policy</h2>
+        </div>
+        <p>
+          We may update this Privacy Policy occasionally to reflect changes to the app's features or legal requirements. When we make material
+          changes:
+        </p>
+        <ul class="policy-list">
+          <li>
+            <span class="li-icon">📣</span>
+            <span>The "Effective Date" at the top of this page will be updated.</span>
+          </li>
+          <li>
+            <span class="li-icon">📱</span>
+            <span>A notice may appear within the app prompting you to review the updated policy.</span>
+          </li>
+          <li>
+            <span class="li-icon">📧</span>
+            <span>For significant changes, we will take reasonable steps to notify users.</span>
+          </li>
+        </ul>
+        <div class="highlight-box yellow">
+          ⚠️ Continued use of the app after an updated policy is posted constitutes acceptance of the revised terms.
+        </div>
+      </div>
+
+      <!-- ── 10. Terms of Use ──────────────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <span class="section-number">10</span>
+          <h2>Terms of Use</h2>
+        </div>
+        <p>By using Studora AI, you agree to the following:</p>
+        <ul class="policy-list">
+          <li>
+            <span class="li-icon">✅</span>
+            <span>You will use the app for lawful personal educational purposes only.</span>
+          </li>
+          <li>
+            <span class="li-icon">✅</span>
+            <span
+              >You are responsible for the Groq API key you configure. Do not share your key or use it in ways that violate Groq's Terms of
+              Service.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">✅</span>
+            <span
+              >The app is provided "as is" without warranties of any kind. We are not liable for data loss due to device failure, OS update, or
+              accidental deletion.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">✅</span>
+            <span
+              >AI-generated content (study plans, mock tests, suggestions) is for educational assistance only and should not replace professional
+              educational or medical advice.</span
+            >
+          </li>
+          <li>
+            <span class="li-icon">✅</span>
+            <span>We reserve the right to update, modify, or discontinue the app at any time.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ── Contact ───────────────────────────────────────────── -->
+      <div class="contact-box">
+        <h2>📬 Questions or Concerns?</h2>
+        <p>We're happy to answer any privacy questions. Reach out and we'll respond within 48 hours.</p>
+        <a href="mailto:privacy@amitupadhyay.com" class="contact-link">privacy@amitupadhyay.com</a>
+      </div>
+    </div>
+    <!-- end .container -->
+
+    <!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+    <footer>
+      <p>
+        © 2026 Amit Upadhyay · Studora AI &nbsp;|&nbsp; <a href="https://amitupadhyay.com">amitupadhyay.com</a> &nbsp;|&nbsp;
+        <a href="mailto:privacy@amitupadhyay.com">privacy@amitupadhyay.com</a>
+      </p>
+      <p style="margin-top: 8px; color: #aaa; font-size: 12px">This policy was last updated on 3 March 2026.</p>
+    </footer>
+  </body>
+</html>

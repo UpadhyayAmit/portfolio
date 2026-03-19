@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Bash(node --version)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}

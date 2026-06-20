@@ -31,24 +31,34 @@ const capabilities = [
 
 const recentWork = [
   {
-    name: 'TowerAssist',
-    category: 'Platform',
-    stack: ['Flutter', 'Firebase', 'Riverpod'],
-    description: 'Cross-platform app for building maintenance — residents raise tickets, technicians resolve them, admins oversee all activity with real-time Firestore, FCM push, and 3-tier RBAC.',
-    metric: 'Real-Time RBAC',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="w-16 h-16 text-indigo-400/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" /></svg>`,
-    gradient: 'from-indigo-500/20 via-purple-500/10 to-transparent',
-    glowColor: 'rgba(129, 140, 248, 0.15)',
+    name: 'BazaarPulse',
+    category: 'Fintech Platform',
+    stack: ['Next.js', 'Supabase', 'Redis', 'TypeScript'],
+    description: 'Indian market intelligence platform with real-time NSE data, stock screener, and analytics. Built with a robust browser-like NSE client, auto-refreshing cookies, and Upstash Redis caching.',
+    metric: 'Real-Time Data',
+    image: '/bazaarpulse.png',
+    github: 'https://github.com/UpadhyayAmit/bazaarpulse',
+    live: 'https://bazaarpulse.app',
   },
   {
-    name: 'AI Study Planner',
-    category: 'AI Tool',
-    stack: ['React Native', 'Groq LLaMA 3.3', 'Expo'],
-    description: 'Privacy-first study app built with React Native. OCR syllabus scanning, Groq Whisper voice input, AI mock tests, smart scheduling, and a built-in prompt injection guard.',
-    metric: 'Privacy-First AI',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="w-16 h-16 text-emerald-400/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" /></svg>`,
-    gradient: 'from-emerald-500/15 via-teal-500/10 to-transparent',
-    glowColor: 'rgba(52, 211, 153, 0.12)',
+    name: 'AI Wisdom',
+    category: 'Blog Platform',
+    stack: ['Astro', 'Tailwind CSS', 'MDX', 'Vercel'],
+    description: 'A high-performance static site dedicated to essays, guides, and case studies on building real-world AI systems. Designed for readability with an emphasis on production lessons.',
+    metric: '100 Lighthouse',
+    image: '/aiwisdom.png',
+    github: 'https://github.com/UpadhyayAmit/aiwisdom.dev',
+    live: 'https://aiwisdom.dev',
+  },
+  {
+    name: 'PyAnimate',
+    category: 'EdTech Tool',
+    stack: ['Next.js', 'Pyodide', 'Monaco', 'Framer Motion'],
+    description: 'Browser-based Python learning playground. Master algorithms through interactive execution visualization. Watch your code run line-by-line with interactive Big O complexity charts.',
+    metric: 'WASM Runtime',
+    image: '/pyanimate.png',
+    github: 'https://github.com/UpadhyayAmit/PyAnimate',
+    live: 'https://pyanimate.com',
   },
 ];
 
@@ -146,13 +156,13 @@ const iconSkills = [
       </div>
 
       <!-- Availability badge -->
-      <div class="hero-badge mb-8 animate-fade-in" style="animation-delay: 0.25s;">
+      <a href="/contact" class="hero-badge mb-8 animate-fade-in hover:scale-105 transition-transform" style="animation-delay: 0.25s;">
         <span class="relative flex h-2.5 w-2.5">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
         </span>
-        Open to AI Architecture Advisory
-      </div>
+        Open to Advisory
+      </a>
 
       <!-- Heading -->
       <h1 class="text-h1-mobile md:text-h1 text-primary font-heading tracking-tighter animate-fade-in-up max-w-4xl" style="animation-delay: 0.35s;">
@@ -304,7 +314,14 @@ const iconSkills = [
                     <div class="flex items-center gap-3 mb-1">
                       <span class="text-xs font-medium text-muted uppercase tracking-widest">{project.category}</span>
                     </div>
-                    <h3 class="text-2xl font-bold font-heading text-primary">{project.name}</h3>
+                    {project.live ? (
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" class="group/title inline-flex items-center gap-2">
+                        <h3 class="text-2xl font-bold font-heading text-primary group-hover/title:text-accent transition-colors">{project.name}</h3>
+                        <svg class="w-5 h-5 text-muted group-hover/title:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                      </a>
+                    ) : (
+                      <h3 class="text-2xl font-bold font-heading text-primary">{project.name}</h3>
+                    )}
                   </div>
                   <span class="flex-shrink-0 px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
                     {project.metric}
@@ -317,24 +334,11 @@ const iconSkills = [
                 <p class="mt-5 text-small text-muted/70">
                   Stack: {project.stack.join(' · ')}
                 </p>
-
-                <!-- CTA -->
-                <a href="/projects" class="mt-8 inline-flex items-center gap-2 text-sm text-secondary hover:text-accent transition-colors duration-300 group">
-                  Case study
-                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                </a>
               </div>
 
-              <!-- Right: abstract visual panel -->
-              <div class={`md:w-72 h-48 md:h-auto project-visual border-t md:border-t-0 md:border-l border-border/30 bg-gradient-to-br ${project.gradient}`}>
-                <!-- Decorative grid lines -->
-                <div class="absolute inset-0 bg-grid opacity-20"></div>
-                <!-- Glow orb -->
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full blur-3xl" style={`background: ${project.glowColor};`}></div>
-                <!-- Icon -->
-                <div class="relative flex items-center justify-center w-full h-full">
-                  <Fragment set:html={project.icon} />
-                </div>
+              <!-- Right: image visual panel -->
+              <div class="md:w-1/2 lg:w-[450px] min-h-[250px] project-visual border-t md:border-t-0 md:border-l border-border/30 overflow-hidden relative group-hover:border-accent/30 transition-colors bg-gradient-to-br from-black/40 to-black/10 flex items-center justify-center p-6 lg:p-10">
+                <img src={project.image} alt={project.name} class="w-full h-auto rounded-xl shadow-2xl ring-1 ring-white/10 object-contain hover:scale-105 transition-transform duration-700" />
               </div>
             </div>
           </div>

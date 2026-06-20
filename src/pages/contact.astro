@@ -11,8 +11,8 @@ const description = 'Reach out to Amit Upadhyay for AI architecture advisory, sy
 const contactLinks = [
   {
     label: 'Email',
-    value: 'hello@amitupadhyay.com',
-    href: 'mailto:hello@amitupadhyay.com',
+    value: 'connect@amitupadhyay.com',
+    href: 'mailto:connect@amitupadhyay.com',
     icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
   },
   {
@@ -32,25 +32,6 @@ const contactLinks = [
     value: 'aiwisdom.dev',
     href: 'https://aiwisdom.dev',
     icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>`,
-  },
-];
-
-const openTo = [
-  {
-    title: 'AI Architecture Advisory',
-    description: 'Advising on RAG pipelines, agent systems, and production AI architecture on Azure.',
-  },
-  {
-    title: 'Technical Writing & Speaking',
-    description: 'Technical essays, conference talks, and workshop sessions on AI engineering.',
-  },
-  {
-    title: 'Senior AI Engineering Opportunities',
-    description: 'Open to the right full-time role — AI-first teams building systems that matter.',
-  },
-  {
-    title: 'Code & Architecture Reviews',
-    description: 'Deep review of AI system design, .NET backends, and cloud architecture.',
   },
 ];
 ---
@@ -80,10 +61,11 @@ const openTo = [
     </div>
   </section>
 
-  <!-- Contact + Open To -->
+  <!-- Contact Form & Links -->
   <section class="pb-24 md:pb-32">
     <div class="max-w-container mx-auto px-6">
       <div class="grid lg:grid-cols-5 gap-8">
+        
         <!-- Contact Links -->
         <div class="lg:col-span-2 space-y-4 reveal">
           <h2 class="text-h3 text-primary mb-6">Get in Touch</h2>
@@ -106,29 +88,61 @@ const openTo = [
           ))}
         </div>
 
-        <!-- Open To -->
+        <!-- Inquiry Form -->
         <div class="lg:col-span-3 reveal reveal-delay-2">
-          <h2 class="text-h3 text-primary mb-6">What I'm Open To</h2>
-          <div class="grid sm:grid-cols-2 gap-4">
-            {openTo.map((item, i) => (
-              <div class={`glow-card rounded-xl p-6 reveal reveal-delay-${(i % 4) + 1}`}>
-                <div class="w-8 h-8 rounded-lg bg-accent/10 text-accent flex items-center justify-center text-sm font-bold mb-3">
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-                <h3 class="text-base font-semibold text-primary">{item.title}</h3>
-                <p class="mt-2 text-sm text-muted leading-relaxed">{item.description}</p>
+          <div class="glow-card rounded-2xl p-7">
+            <h2 class="text-h3 text-primary mb-2">Quick Inquiry</h2>
+            <p class="text-muted text-sm mb-6">Fill out the form below to draft an email directly to me.</p>
+
+            <form id="inquiry-form" class="space-y-4">
+              <div>
+                <label for="name" class="block text-sm font-medium text-secondary mb-1">Name <span class="text-red-400">*</span></label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="e.g. John Doe"
+                  required
+                  class="w-full bg-background border border-border/50 rounded-xl px-4 py-2.5 text-sm text-primary placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition"
+                />
               </div>
-            ))}
+
+              <div>
+                <label for="subject" class="block text-sm font-medium text-secondary mb-1">Subject <span class="text-red-400">*</span></label>
+                <select
+                  id="subject"
+                  required
+                  class="w-full bg-background border border-border/50 rounded-xl px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition appearance-none"
+                >
+                  <option value="" disabled selected>Select an option...</option>
+                  <option value="AI Architecture Advisory">AI Architecture Advisory</option>
+                  <option value="Technical Collaboration">Technical Collaboration</option>
+                  <option value="Speaking Opportunity">Speaking Opportunity</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="block text-sm font-medium text-secondary mb-1">Message</label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  placeholder="Tell me a little about your project or inquiry..."
+                  class="w-full bg-background border border-border/50 rounded-xl px-4 py-2.5 text-sm text-primary placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition resize-none"
+                ></textarea>
+              </div>
+
+              <p id="form-error" class="text-red-400 text-sm hidden">Please fill in your name and select a subject.</p>
+
+              <button
+                type="submit"
+                class="w-full bg-accent hover:bg-accent-hover text-white font-semibold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Send via Email
+              </button>
+            </form>
           </div>
         </div>
-      </div>
-
-      <!-- Bottom CTA -->
-      <div class="mt-16 text-center reveal">
-        <p class="text-muted text-sm">Prefer email?</p>
-        <a href="mailto:hello@amitupadhyay.com" class="mt-2 inline-block text-2xl md:text-3xl font-bold text-accent hover:text-accent-hover transition-colors">
-          hello@amitupadhyay.com
-        </a>
       </div>
     </div>
   </section>
@@ -137,6 +151,7 @@ const openTo = [
 </Layout>
 
 <script>
+  // Scroll Reveal
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -146,4 +161,29 @@ const openTo = [
     { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
   );
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  // Form Handling
+  const form = document.getElementById('inquiry-form') as HTMLFormElement;
+  const errorEl = document.getElementById('form-error') as HTMLParagraphElement;
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = (document.getElementById('name') as HTMLInputElement).value.trim();
+      const subject = (document.getElementById('subject') as HTMLSelectElement).value;
+      const message = (document.getElementById('message') as HTMLTextAreaElement).value.trim();
+
+      if (!name || !subject) {
+        errorEl.classList.remove('hidden');
+        return;
+      }
+      errorEl.classList.add('hidden');
+
+      const emailBody = `Hi Amit,\n\n${message}\n\nBest regards,\n${name}`;
+      const mailtoLink = `mailto:connect@amitupadhyay.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+      
+      window.location.href = mailtoLink;
+    });
+  }
 </script>

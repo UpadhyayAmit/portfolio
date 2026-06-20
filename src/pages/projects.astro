@@ -9,57 +9,85 @@ const description = 'Projects by Amit Upadhyay: TowerAssist (Flutter + Firebase)
 
 const projects = [
   {
-    title: 'TowerAssist',
-    tagline: 'Cross-platform building maintenance and operations platform.',
-    stack: ['Flutter', 'Firebase', 'Riverpod'],
+    title: 'BazaarPulse',
+    tagline: 'Indian market intelligence platform with real-time NSE data.',
+    image: '/bazaarpulse.png',
+    stack: ['Next.js', 'Supabase', 'Redis', 'TypeScript'],
     description:
-      'A Flutter app (Android, iOS, Web) for building operations. Residents raise maintenance tickets, technicians manage and close them, admins oversee everything — with real-time Firestore, FCM push notifications, 3-tier RBAC via custom Firebase claims, audit logging, and clean feature-first architecture.',
-    lesson: 'Real-time role-based platforms need clean separation from day one.',
-    category: 'Platform',
+      'A comprehensive market platform featuring real-time NSE data, stock screeners, and analytics. Built with a resilient browser-like NSE client utilizing cookie management and Upstash Redis for intelligent caching during market hours. Integrates Supabase for portfolio and watchlist tracking with Row Level Security.',
+    lesson: 'Efficient caching and robust error handling are vital for public APIs.',
+    category: 'Fintech Platform',
     metrics: [
-      { label: 'Roles', value: '3-tier RBAC' },
-      { label: 'Platform', value: 'Flutter' },
+      { label: 'Data', value: 'Real-Time NSE' },
+      { label: 'Cache', value: 'Redis (Upstash)' },
     ],
+    live: 'https://bazaarpulse.app',
+    github: 'https://github.com/UpadhyayAmit/bazaarpulse'
   },
   {
-    title: 'AI Study Planner',
-    tagline: 'Privacy-first AI study planner with voice, OCR, and mock tests.',
-    stack: ['React Native', 'Groq (LLaMA 3.3)', 'Expo'],
+    title: 'PyAnimate',
+    tagline: 'Interactive browser-based Python algorithm learning playground.',
+    image: '/pyanimate.png',
+    stack: ['Next.js', 'Pyodide', 'Monaco', 'Framer Motion'],
     description:
-      'A React Native study app powered by Groq LLaMA 3.3 70B. Scan a syllabus via OCR (Apple Vision / ML Kit + Groq Vision fallback), speak tasks with Groq Whisper, generate AI mock tests with answer evaluation, and get personalised study sessions — all with per-user encrypted API keys and a prompt injection guard.',
-    lesson: 'Privacy-first AI: user-owned keys, on-device protection.',
-    category: 'AI Tool',
+      'A fully client-side Python execution environment built with Pyodide (WebAssembly). Enables users to step through algorithm executions line-by-line with interactive visualizations and Big O complexity charts. Integrates Monaco Editor for professional code editing.',
+    lesson: 'WebAssembly unlocks powerful client-side capabilities without server costs.',
+    category: 'EdTech Tool',
     metrics: [
-      { label: 'AI Model', value: 'LLaMA 3.3 70B' },
-      { label: 'Privacy', value: 'Encrypted keys' },
+      { label: 'Runtime', value: 'Pyodide WASM' },
+      { label: 'Lessons', value: '50 Interactive' },
     ],
+    live: 'https://pyanimate.com',
+    github: 'https://github.com/UpadhyayAmit/PyAnimate'
   },
   {
-    title: 'Panchatantra Algorithm Series',
-    tagline: 'Storytelling method for teaching algorithms.',
-    stack: ['Ghost CMS', 'Algorithm Design', 'Interactive Storytelling'],
+    title: 'How Things Work',
+    tagline: 'Visual encyclopedia explaining internal technologies.',
+    image: '/howthingswork.png',
+    stack: ['Next.js', 'React Flow', 'Framer Motion', 'Zustand'],
     description:
-      'A content + code project that uses narrative storytelling to teach complex algorithms. Each algorithm is a "story" with characters, conflict, and resolution — making concepts stick.',
-    lesson: 'Teaching through narrative.',
-    category: 'Education',
+      'An interactive platform that uses animated diagrams, step-through visualizations, and interactive code editors to explain the internals of technologies like React Fiber, Azure Functions, and .NET Garbage Collection.',
+    lesson: 'Complex technical concepts are best taught through interactive visual traversal.',
+    category: 'Education Platform',
     metrics: [
-      { label: 'Approach', value: 'Narrative' },
-      { label: 'Format', value: 'Interactive' },
+      { label: 'Visuals', value: 'React Flow' },
+      { label: 'Content', value: 'MDX' },
     ],
+    live: 'https://howthingswork.live',
+    github: 'https://github.com/UpadhyayAmit/howthingswork'
   },
   {
-    title: 'LegalAI',
-    tagline: 'AI legal assistant for Indian law, built with Flutter and Google Gemini.',
-    stack: ['Flutter', 'Google Gemini', 'Speech-to-Text'],
+    title: 'SutraFlow',
+    tagline: 'Interactive Vedic Mathematics learning platform.',
+    image: '/sutraflow.png',
+    stack: ['Next.js', 'KaTeX', 'Framer Motion', 'Vitest'],
     description:
-      'A Flutter app that makes Indian legal knowledge accessible through conversation. Built-in RAG knowledge base covering tenant rights, consumer protection, traffic law, and FIR procedures. Uses Google Gemini with dynamic model selection, speech-to-text voice input, and markdown-rendered responses.',
-    lesson: 'Domain-specific RAG makes specialist knowledge accessible to everyone.',
-    category: 'AI Assistant',
+      'A platform to teach students mental math techniques using Vedic Mathematics. Guides learners through Watch, Guided Practice, and Mental Math modes with step-by-step animations and mathematically validated problem generation.',
+    lesson: 'Teaching algorithms requires deep conceptual proofs alongside practice.',
+    category: 'EdTech Tool',
     metrics: [
-      { label: 'Knowledge', value: 'Indian Law RAG' },
-      { label: 'Input', value: 'Voice + Text' },
+      { label: 'Math', value: 'KaTeX Rendering' },
+      { label: 'Testing', value: '100% Coverage' },
     ],
+    live: 'https://sutraflow.app',
+    github: 'https://github.com/UpadhyayAmit/SutraFlow'
   },
+  {
+    title: 'AI Wisdom',
+    tagline: 'Technical writing platform for AI Architecture and Engineering.',
+    image: '/aiwisdom.png',
+    stack: ['Astro', 'Tailwind CSS', 'MDX', 'Vercel'],
+    description:
+      'A high-performance static site dedicated to essays, guides, and case studies on building real-world AI systems. Designed for readability with an emphasis on production lessons rather than theory. Uses Astro for near-instant page loads.',
+    lesson: 'Content platforms must prioritize typography, reading experience, and zero-JS overhead.',
+    category: 'Blog Platform',
+    metrics: [
+      { label: 'Performance', value: '100 Lighthouse' },
+      { label: 'Architecture', value: 'Static Gen' },
+    ],
+    live: 'https://aiwisdom.dev',
+    github: 'https://github.com/UpadhyayAmit/aiwisdom.dev'
+  }
 ];
 ---
 
@@ -89,8 +117,13 @@ const projects = [
     <div class="max-w-container mx-auto px-6 space-y-8">
       {projects.map((project, i) => (
         <article class={`glow-card rounded-2xl overflow-hidden reveal reveal-delay-${(i % 4) + 1}`}>
+          <!-- Image -->
+          <div class="w-full h-48 md:h-80 overflow-hidden bg-background/50 border-b border-border/50">
+            <img src={project.image} alt={project.title} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" />
+          </div>
+
           <!-- Header bar -->
-          <div class="px-8 md:px-10 pt-8 md:pt-10 flex items-center justify-between">
+          <div class="px-8 md:px-10 pt-8 flex items-center justify-between">
             <span class="px-3 py-1 rounded-lg text-xs font-medium bg-accent/10 text-accent border border-accent/20">
               {project.category}
             </span>
@@ -106,7 +139,14 @@ const projects = [
 
           <!-- Content -->
           <div class="p-8 md:p-10">
-            <h2 class="text-h2 text-primary">{project.title}</h2>
+            {project.live ? (
+              <a href={project.live} target="_blank" rel="noopener noreferrer" class="group/title inline-flex items-center gap-2">
+                <h2 class="text-h2 text-primary group-hover/title:text-accent transition-colors">{project.title}</h2>
+                <svg class="w-6 h-6 text-muted group-hover/title:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            ) : (
+              <h2 class="text-h2 text-primary">{project.title}</h2>
+            )}
             <p class="mt-2 text-body-lg text-secondary">{project.tagline}</p>
 
             <p class="mt-6 text-body text-muted leading-relaxed max-w-2xl">

@@ -315,7 +315,7 @@ const iconSkills = [
                       <span class="text-xs font-medium text-muted uppercase tracking-widest">{project.category}</span>
                     </div>
                     {project.live ? (
-                      <a href={project.live} target="_blank" rel="noopener noreferrer" class="group/title inline-flex items-center gap-2">
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" class="group/title inline-flex items-center gap-2 relative z-20 cursor-pointer">
                         <h3 class="text-2xl font-bold font-heading text-primary group-hover/title:text-accent transition-colors">{project.name}</h3>
                         <svg class="w-5 h-5 text-muted group-hover/title:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                       </a>
@@ -337,9 +337,9 @@ const iconSkills = [
               </div>
 
               <!-- Right: image visual panel -->
-              <div class="md:w-1/2 lg:w-[450px] min-h-[250px] project-visual border-t md:border-t-0 md:border-l border-border/30 overflow-hidden relative group-hover:border-accent/30 transition-colors bg-gradient-to-br from-black/40 to-black/10 flex items-center justify-center p-6 lg:p-10">
+              <a href={project.live || project.github} target="_blank" rel="noopener noreferrer" class="md:w-1/2 lg:w-[450px] min-h-[250px] project-visual border-t md:border-t-0 md:border-l border-border/30 overflow-hidden relative group-hover:border-accent/30 transition-colors bg-gradient-to-br from-black/40 to-black/10 flex items-center justify-center p-6 lg:p-10 z-20 cursor-pointer block">
                 <img src={project.image} alt={project.name} class="w-full h-auto rounded-xl shadow-2xl ring-1 ring-white/10 object-contain hover:scale-105 transition-transform duration-700" />
-              </div>
+              </a>
             </div>
           </div>
         ))}

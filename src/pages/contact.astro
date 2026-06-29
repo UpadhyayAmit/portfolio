@@ -92,15 +92,30 @@ const contactLinks = [
         <div class="lg:col-span-3 reveal reveal-delay-2">
           <div class="glow-card rounded-2xl p-7">
             <h2 class="text-h3 text-primary mb-2">Quick Inquiry</h2>
-            <p class="text-muted text-sm mb-6">Fill out the form below to draft an email directly to me.</p>
+            <p class="text-muted text-sm mb-6">Fill out the form below and I’ll get back to you at the email you provide.</p>
 
             <form id="inquiry-form" class="space-y-4">
+              <input id="started-at" name="startedAt" type="hidden" />
+              <input name="website" type="text" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
               <div>
                 <label for="name" class="block text-sm font-medium text-secondary mb-1">Name <span class="text-red-400">*</span></label>
                 <input
                   id="name"
+                  name="name"
                   type="text"
                   placeholder="e.g. John Doe"
+                  required
+                  class="w-full bg-background border border-border/50 rounded-xl px-4 py-2.5 text-sm text-primary placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition"
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-sm font-medium text-secondary mb-1">Email <span class="text-red-400">*</span></label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
                   required
                   class="w-full bg-background border border-border/50 rounded-xl px-4 py-2.5 text-sm text-primary placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition"
                 />
@@ -110,6 +125,7 @@ const contactLinks = [
                 <label for="subject" class="block text-sm font-medium text-secondary mb-1">Subject <span class="text-red-400">*</span></label>
                 <select
                   id="subject"
+                  name="subject"
                   required
                   class="w-full bg-background border border-border/50 rounded-xl px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition appearance-none"
                 >
@@ -125,20 +141,25 @@ const contactLinks = [
                 <label for="message" class="block text-sm font-medium text-secondary mb-1">Message</label>
                 <textarea
                   id="message"
+                  name="message"
                   rows="4"
                   placeholder="Tell me a little about your project or inquiry..."
+                  required
+                  minlength="20"
                   class="w-full bg-background border border-border/50 rounded-xl px-4 py-2.5 text-sm text-primary placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition resize-none"
                 ></textarea>
               </div>
 
-              <p id="form-error" class="text-red-400 text-sm hidden">Please fill in your name and select a subject.</p>
+              <p id="form-error" class="text-red-400 text-sm hidden">Please fill in all required fields.</p>
+              <p id="form-success" class="text-emerald-400 text-sm font-medium hidden">Thanks. Your enquiry has been sent.</p>
 
               <button
+                id="submit-button"
                 type="submit"
                 class="w-full bg-accent hover:bg-accent-hover text-white font-semibold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg"
               >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                Send via Email
+                Send message
               </button>
             </form>
           </div>
@@ -165,25 +186,57 @@ const contactLinks = [
   // Form Handling
   const form = document.getElementById('inquiry-form') as HTMLFormElement;
   const errorEl = document.getElementById('form-error') as HTMLParagraphElement;
+  const successEl = document.getElementById('form-success') as HTMLParagraphElement;
+  const startedAt = document.getElementById('started-at') as HTMLInputElement;
+  const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+
+  if (startedAt) startedAt.value = String(Date.now());
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = (document.getElementById('name') as HTMLInputElement).value.trim();
+      const email = (document.getElementById('email') as HTMLInputElement).value.trim();
       const subject = (document.getElementById('subject') as HTMLSelectElement).value;
       const message = (document.getElementById('message') as HTMLTextAreaElement).value.trim();
 
-      if (!name || !subject) {
+      if (!name || !email || !subject || message.length < 20) {
+        errorEl.textContent = 'Please fill in all required fields. Message must be at least 20 characters.';
         errorEl.classList.remove('hidden');
+        successEl.classList.add('hidden');
         return;
       }
       errorEl.classList.add('hidden');
+      successEl.classList.add('hidden');
+      submitButton.disabled = true;
+      submitButton.classList.add('opacity-70');
 
-      const emailBody = `Hi Amit,\n\n${message}\n\nBest regards,\n${name}`;
-      const mailtoLink = `mailto:connect@amitupadhyay.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-      
-      window.location.href = mailtoLink;
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            email,
+            subject,
+            message,
+            website: (form.querySelector('input[name="website"]') as HTMLInputElement).value,
+            startedAt: startedAt.value,
+          }),
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || 'Unable to send message.');
+        form.reset();
+        startedAt.value = String(Date.now());
+        successEl.classList.remove('hidden');
+      } catch (error) {
+        errorEl.textContent = error instanceof Error ? error.message : 'Unable to send message.';
+        errorEl.classList.remove('hidden');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.classList.remove('opacity-70');
+      }
     });
   }
 </script>
